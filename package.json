@@ -1,0 +1,23 @@
+{
+  "name": "leets",
+  "version": "1.0.0",
+  "description": "leetcode.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "author": "Mao Nabeta",
+  "license": "MIT",
+  "devDependencies": {
+    "gts": "^3.1.1",
+    "typescript": "^4.8.4",
+    "@types/node": "^14.11.2"
+  }
+}
