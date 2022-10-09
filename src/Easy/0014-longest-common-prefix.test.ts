@@ -6,11 +6,20 @@ function longestCommonPrefix(strs: string[]): string {
   if (!strs.length) {
     return '';
   }
+  if (strs.length === 1) {
+    return strs[0];
+  }
+
+  // no common
   return '';
 }
 
-describe('longestCommonPrefix', () => {
-  test.only('["flower, "flow", "flight"]', () => {
+describe.only('longestCommonPrefix', () => {
+  test('empty array', () => {
     expect(longestCommonPrefix([])).toBe('');
+  });
+
+  test('array contains only one element', () => {
+    expect(longestCommonPrefix(['foo'])).toBe('foo');
   });
 });
