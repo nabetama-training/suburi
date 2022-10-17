@@ -1,5 +1,3 @@
-import exp = require('constants');
-
 class ListNode {
   val: number;
   next: ListNode | null;
