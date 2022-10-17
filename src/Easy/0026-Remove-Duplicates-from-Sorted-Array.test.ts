@@ -1,45 +1,32 @@
-interface Counter {
-  [key: number]: number;
-}
-
 /**
  *
- * @param nums 入力かつ破壊する配列
+ * The judge will test your solution with the following code:
+int[] nums = [...]; // Input array
+int[] expectedNums = [...]; // The expected answer with correct length
+
+int k = removeDuplicates(nums); // Calls your implementation
+
+assert k == expectedNums.length;
+for (int i = 0; i < k; i++) {
+    assert nums[i] == expectedNums[i];
+}
+ * @param nums 入力値かつ"破壊しなくてはならない"配列
  * @returns 重複を取り除いた配列の要素数
  */
 const removeDuplicates = (nums: number[]): number => {
-  if (nums.length === 0) {
-    return 0;
-  }
+  let nextNonDuplicateIndex = 1;
 
-  const counter: Counter = {};
-
-  nums.forEach(num => {
-    if (counter[num]) {
-      counter[num] += 1;
-    } else {
-      counter[num] = 1;
+  nums.forEach((num, i) => {
+    if (nums[nextNonDuplicateIndex - 1] !== nums[i]) {
+      nums[nextNonDuplicateIndex] = nums[i];
+      nextNonDuplicateIndex += 1;
     }
   });
 
-  //   let tmp = 0;
-  //   Object.keys(counter).forEach(y => {
-  //     const ny = Number(y);
-  //     if (tmp < counter[ny]) {
-  //       tmp = counter[ny];
-  //     }
-  //   });
-
-  nums = Object.keys(counter).map(x => Number(x));
-
-  return Object.keys(counter).map<number>(x => Number(x)).length;
+  return nextNonDuplicateIndex;
 };
 
 describe('Remove Duplicates from Sorted Array', () => {
-  test('empty array', () => {
-    expect(removeDuplicates([])).toBe(0);
-  });
-
   test('3 nums', () => {
     expect(removeDuplicates([1, 1, 2])).toBe(2);
   });
