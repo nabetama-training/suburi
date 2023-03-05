@@ -1,1 +1,1 @@
-mod easy;
+pub mod easy;
