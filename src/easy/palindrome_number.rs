@@ -1,5 +1,23 @@
+#[allow(dead_code)]
+fn is_palindrome(x: i32) -> bool {
+    if x < 0 {
+        return false;
+    }
+
+    if x < 10 {
+        return true;
+    }
+    x.to_string()
+        .chars()
+        .rev()
+        .collect::<String>()
+        .eq(&x.to_string())
+}
+
 #[cfg(test)]
 mod test {
+    use super::*;
+
     #[test]
     fn test_is_palindrome() {
         struct TestCase {
