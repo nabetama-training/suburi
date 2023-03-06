@@ -1,5 +1,4 @@
-#[cfg(test)]
-fn longest_common_prefix(strs: Vec<String>) -> String {
+pub fn longest_common_prefix(strs: Vec<String>) -> String {
     if strs.is_empty() {
         return "".to_string();
     }
@@ -24,6 +23,7 @@ fn longest_common_prefix(strs: Vec<String>) -> String {
     result
 }
 
+#[cfg(test)]
 mod test {
     use super::*;
 
