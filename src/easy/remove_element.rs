@@ -1,3 +1,20 @@
+pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
+    let mut i = 0;
+
+    while i < nums.len() {
+        // 削除対象だったら
+        if nums[i] == val {
+            // リストから消す（次の数が同じインデックスにスライドしてくるので次の数が探索できる）
+            nums.remove(i);
+        } else {
+            // 削除対象じゃない場合は次の数を探索するためにインデックスをインクリメント
+            i += 1;
+        }
+    }
+
+    nums.len() as i32
+}
+
 #[cfg(test)]
 mod test {
     use super::*;
@@ -23,8 +40,8 @@ mod test {
             },
         ];
 
-        for tc in test_cases {
-            assert_eq!(tc.expect, remove_element(tc.nums, tc.val));
+        for mut tc in test_cases {
+            assert_eq!(tc.expect, remove_element(&mut tc.nums, tc.val));
         }
     }
 }
