@@ -1,3 +1,4 @@
+use core::num;
 use std::cmp::Ordering;
 
 // Given a sorted array of distinct integers and a target value,
@@ -27,8 +28,22 @@ pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
             Ordering::Less => high = mid - 1,
         }
     }
-
     low as i32
+}
+
+// sample code which runs in 0ms runtime
+pub fn search_insert2(nums: Vec<i32>, target: i32) -> i32 {
+    let mut i = 0;
+    let mut j = nums.len();
+    while i < j {
+        let mid = (i + j) / 2;
+        if target > nums[mid] {
+            i = mid + 1;
+        } else {
+            j = mid;
+        }
+    }
+    i as i32
 }
 
 #[cfg(test)]
