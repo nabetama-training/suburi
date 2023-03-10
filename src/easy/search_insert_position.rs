@@ -1,4 +1,3 @@
-use core::num;
 use std::cmp::Ordering;
 
 // Given a sorted array of distinct integers and a target value,
