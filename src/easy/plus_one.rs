@@ -4,7 +4,7 @@ pub fn plus_one(mut digits: Vec<i32>) -> Vec<i32> {
     loop {
         if digits[i] < 9 {
             digits[i] += 1;
-            break digits;
+            break;
         }
 
         // digits[i] が　9以上だったら繰り上げ
@@ -15,10 +15,11 @@ pub fn plus_one(mut digits: Vec<i32>) -> Vec<i32> {
         // なので先頭に1を挿入する
         if i == 0 {
             digits.insert(0, 1);
-            break digits;
+            break;
         }
         i -= 1;
     }
+    digits
 }
 
 #[cfg(test)]
