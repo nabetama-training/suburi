@@ -1,3 +1,4 @@
+pub mod length_of_last_word;
 pub mod longest_common_prefix;
 pub mod merge_two_sorted_lists;
 pub mod palindrome_number;
