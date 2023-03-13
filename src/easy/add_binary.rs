@@ -30,7 +30,7 @@ pub fn add_binary(a: String, b: String) -> String {
     // 結果格納用String
     let mut result = String::new();
     // 繰り上がり
-    let mut carry = 0;
+    let mut move_up = 0;
 
     // 長いほうを最長のループ回数にセットする
     let loop_len = match a_rev.len() < b_rev.len() {
@@ -38,7 +38,7 @@ pub fn add_binary(a: String, b: String) -> String {
         false => a_rev.len(),
     };
 
-    while i < loop_len || carry > 0 {
+    while i < loop_len || move_up > 0 {
         // vec のインデックス外であれば 0 とみなす
         let left_str = match a_rev.get(i).map(|v| v.to_string()) {
             Some(s) => s,
@@ -53,18 +53,18 @@ pub fn add_binary(a: String, b: String) -> String {
         let right = i32::from_str_radix(&right_str, 2).unwrap_or(0);
 
         // 繰り上がりも足す
-        let sum = left + right + carry;
+        let sum = left + right + move_up;
 
         if 1 < sum {
             let div = sum % 2;
             result.push_str(&div.to_string());
             // 繰り上がりがある
-            carry = 1;
+            move_up = 1;
         } else {
             // 0 or 1
             result.push_str(&sum.to_string());
             // 繰り上がりはなし
-            carry = 0;
+            move_up = 0;
         }
         i += 1;
     }
