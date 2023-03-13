@@ -27,8 +27,8 @@ pub fn add_binary(a: String, b: String) -> String {
 
     let mut i = 0;
 
-    // 結果格納用Vec
-    let mut result = Vec::<String>::new();
+    // 結果格納用String
+    let mut result = String::new();
     // 繰り上がり
     let mut carry = 0;
 
@@ -57,12 +57,12 @@ pub fn add_binary(a: String, b: String) -> String {
 
         if 1 < sum {
             let div = sum % 2;
-            result.push(div.to_string());
+            result.push_str(&div.to_string());
             // 繰り上がりがある
             carry = 1;
         } else {
             // 0 or 1
-            result.push(sum.to_string());
+            result.push_str(&sum.to_string());
             // 繰り上がりはなし
             carry = 0;
         }
@@ -70,8 +70,7 @@ pub fn add_binary(a: String, b: String) -> String {
     }
 
     // reverse してたものを戻す
-    result.reverse();
-    result.concat()
+    result.chars().rev().collect()
 }
 
 #[cfg(test)]
