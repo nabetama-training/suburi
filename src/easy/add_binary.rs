@@ -32,7 +32,7 @@ pub fn add_binary(a: String, b: String) -> String {
     // 繰り上がり
     let mut carry = 0;
 
-    // 長いほうをループする
+    // 長いほうを最長のループ回数にセットする
     let loop_len = match a_rev.len() < b_rev.len() {
         true => b_rev.len(),
         false => a_rev.len(),
