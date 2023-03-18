@@ -8,11 +8,11 @@ impl Solution {
         if n <= 2 {
             return n;
         }
-        Solution::climb_stairs_time_limit_exceeded(n - 1)
-            + Solution::climb_stairs_time_limit_exceeded(n - 2)
+        Self::climb_stairs_time_limit_exceeded(n - 1)
+            + Self::climb_stairs_time_limit_exceeded(n - 2)
     }
 
-    // O(n) にした。これもフィボナッチ数列の求め方と同じ
+    // O(n) にした。これもフィボナッチ数列の求め方と同じ。
     pub fn climb_stairs(n: i32) -> i32 {
         let mut s1 = 0;
         let mut s2 = 1;
