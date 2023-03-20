@@ -2,7 +2,13 @@ pub struct Solution;
 
 impl Solution {
     // sort した新しい配列を返すのではなく, nums1 に merge する
-    pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {}
+    pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
+        nums1.truncate(m as usize);
+        let b = nums2[0..n as usize].to_vec();
+
+        nums1.extend(b);
+        nums1.sort();
+    }
 }
 
 #[cfg(test)]
@@ -31,6 +37,13 @@ mod test {
                 m: 1,
                 nums2: vec![],
                 n: 0,
+                expect: vec![1],
+            },
+            TestCase {
+                nums1: vec![0],
+                m: 0,
+                nums2: vec![1],
+                n: 1,
                 expect: vec![1],
             },
         ];
