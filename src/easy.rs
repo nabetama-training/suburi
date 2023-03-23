@@ -11,6 +11,7 @@ pub mod remove_duplicates_from_sorted_array;
 pub mod remove_duplicates_from_sorted_list;
 pub mod remove_element;
 pub mod roman_to_integer;
+pub mod same_tree;
 pub mod search_insert_position;
 pub mod sqrt;
 pub mod str_str;
