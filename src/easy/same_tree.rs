@@ -117,6 +117,21 @@ mod test {
                 q: to_tree(Some(vec![Some(1), Some(1), Some(2)])),
                 output: false,
             },
+            TestCase {
+                p: to_tree(Some(vec![None])),
+                q: to_tree(Some(vec![None])),
+                output: true,
+            },
+            TestCase {
+                p: to_tree(Some(vec![Some(1)])),
+                q: to_tree(Some(vec![None])),
+                output: false,
+            },
+            TestCase {
+                p: to_tree(Some(vec![None])),
+                q: to_tree(Some(vec![Some(1)])),
+                output: false,
+            },
         ];
 
         for tc in test_cases {
