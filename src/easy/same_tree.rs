@@ -24,12 +24,25 @@ impl TreeNode {
 impl Solution {
     // 2つの二分木pとqの根が与えられたとき、それらが同じかどうかをチェックする関数
     // 2つの二分木の構造は同一であり、ノードが同じ値を持つ場合、同一とみなす。
-    // 深さ優先探索で実装する
+    // 深さ優先探索(DFS)で実装する
     pub fn is_same_tree(
         p: Option<Rc<RefCell<TreeNode>>>,
         q: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
-        todo!();
+        // 同時に2つの二分木を探索する
+        match (p, q) {
+            (None, None) => true,
+            (None, Some(_)) => false,
+            (Some(_), None) => false,
+            (Some(pp), Some(qq)) => {
+                let node_p = pp.borrow();
+                let node_q = qq.borrow();
+
+                node_p.val == node_q.val
+                    && Self::is_same_tree(node_p.left.clone(), node_q.left.clone())
+                    && Self::is_same_tree(node_p.right.clone(), node_q.right.clone())
+            }
+        }
     }
 }
 
