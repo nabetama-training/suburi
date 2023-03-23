@@ -44,6 +44,18 @@ impl Solution {
             }
         }
     }
+
+    #[allow(dead_code)]
+    // This is correct
+    pub fn is_same_tree2(
+        p: Option<Rc<RefCell<TreeNode>>>,
+        q: Option<Rc<RefCell<TreeNode>>>,
+    ) -> bool {
+        if p != q {
+            return false;
+        }
+        true
+    }
 }
 
 #[cfg(test)]
