@@ -20,7 +20,7 @@ impl TreeNode {
     }
 }
 
-struct Solution;
+pub struct Solution;
 
 impl Solution {
     pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
