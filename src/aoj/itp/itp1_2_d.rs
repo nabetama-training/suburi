@@ -2,7 +2,10 @@ pub struct Solution;
 
 impl Solution {
     pub fn solve(w: i32, h: i32, x: i32, y: i32, r: i32) -> bool {
-        todo!();
+        if (w - r) > x && (h - r) > y {
+            return true;
+        }
+        false
     }
 }
 
