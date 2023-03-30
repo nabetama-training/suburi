@@ -17,7 +17,10 @@ impl Solution {
 
         let mut result = String::new();
 
+        // 出力の制約
+        // 絵柄がスペード、ハート、クラブ、ダイヤの順番で優先的に出力する
         for suit in &["S", "H", "C", "D"] {
+            // 絵柄が同じ場合は、ランクが小さい順に出力する
             for rank in 1..14 {
                 let key = format!("{suit} {rank}");
                 if stocks.contains_key(&key) {
