@@ -31,7 +31,7 @@ impl Solution {
                 }
             }
         }
-        result.pop();
+        result.pop(); // 行末の `,` を削除する
         result
     }
 }
