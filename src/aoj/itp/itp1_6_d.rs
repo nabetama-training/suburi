@@ -25,6 +25,7 @@ impl Solution {
 
         let mut result = vec![0; rows];
         for i in 0..rows {
+            #[allow(clippy::needless_range_loop)]
             for j in 0..cols {
                 result[i] += matrix[i][j] * vector[j];
             }
