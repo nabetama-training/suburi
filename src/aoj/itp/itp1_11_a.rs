@@ -89,11 +89,18 @@ mod test {
             order: String,
             output: i32,
         }
-        let test_cases = [TestCase {
-            dice: vec![1, 2, 4, 8, 16, 32],
-            order: "SE".to_string(),
-            output: 8,
-        }];
+        let test_cases = [
+            TestCase {
+                dice: vec![1, 2, 4, 8, 16, 32],
+                order: "SE".to_string(),
+                output: 8,
+            },
+            TestCase {
+                dice: vec![1, 2, 4, 8, 16, 32],
+                order: "EESWN".to_string(),
+                output: 32,
+            },
+        ];
         for tc in test_cases {
             assert_eq!(tc.output, Solution::solve(tc.dice, tc.order));
         }
