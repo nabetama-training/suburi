@@ -19,38 +19,41 @@ impl Dice {
         }
     }
 
-    // pub fn south(&self) -> Dice {
-    //     Dice {
-    //         one: self.five,
-    //         two: self.one,
-    //         three: self.three,
-    //         four: self.four,
-    //         five: self.six,
-    //         six: self.two,
-    //     }
-    // }
+    #[allow(dead_code)]
+    pub fn south(&self) -> Dice {
+        Dice {
+            one: self.five,
+            two: self.one,
+            three: self.three,
+            four: self.four,
+            five: self.six,
+            six: self.two,
+        }
+    }
+    #[allow(dead_code)]
+    pub fn east(&self) -> Dice {
+        Dice {
+            one: self.four,
+            two: self.two,
+            three: self.one,
+            four: self.six,
+            five: self.five,
+            six: self.three,
+        }
+    }
 
-    // pub fn east(&self) -> Dice {
-    //     Dice {
-    //         one: self.four,
-    //         two: self.two,
-    //         three: self.one,
-    //         four: self.six,
-    //         five: self.five,
-    //         six: self.three,
-    //     }
-    // }
+    #[allow(dead_code)]
+    pub fn west(&self) -> Dice {
+        Dice {
+            one: self.three,
+            two: self.two,
+            three: self.six,
+            four: self.one,
+            five: self.five,
+            six: self.four,
+        }
+    }
 
-    // pub fn west(&self) -> Dice {
-    //     Dice {
-    //         one: self.three,
-    //         two: self.two,
-    //         three: self.six,
-    //         four: self.one,
-    //         five: self.five,
-    //         six: self.four,
-    //     }
-    // }
     pub fn right(&self) -> Dice {
         Dice {
             one: self.one,
@@ -75,15 +78,27 @@ impl Solution {
             five: dice[4],
             six: dice[5],
         };
-        // up が上にくるまで縦回転させる
-        while dice.one != up {
-            dice = dice.north();
+
+        // 上が up になるように回転させる(0 <= n <= 6)
+        let patterns = vec!["", "N", "N", "N", "E", "EE"];
+
+        for pattern in patterns {
+            match pattern {
+                "N" => dice = dice.north(),
+                "E" => dice = dice.east(),
+                "EE" => dice = dice.east().east(),
+                _ => {}
+            }
+            if dice.one == up {
+                break;
+            }
         }
-        // front が前にくるまで横回転させる
+
+        // 横回転させて正面を洗い出す(0 <= n <= 4)
         while dice.two != front {
             dice = dice.right();
         }
-        // right
+        // three は右側面
         dice.three
     }
 }
@@ -100,12 +115,26 @@ mod test {
             front: i32,
             output: i32,
         }
-        let test_cases = [TestCase {
-            dice: vec![1, 2, 3, 4, 5, 6],
-            up: 6,
-            front: 5,
-            output: 3,
-        }];
+        let test_cases = [
+            TestCase {
+                dice: vec![1, 2, 3, 4, 5, 6],
+                up: 6,
+                front: 5,
+                output: 3,
+            },
+            TestCase {
+                dice: vec![1, 2, 3, 4, 5, 6],
+                up: 1,
+                front: 3,
+                output: 5,
+            },
+            TestCase {
+                dice: vec![1, 2, 3, 4, 5, 6],
+                up: 3,
+                front: 2,
+                output: 6,
+            },
+        ];
         for tc in test_cases {
             assert_eq!(tc.output, Solution::solve(tc.dice, tc.up, tc.front));
         }
