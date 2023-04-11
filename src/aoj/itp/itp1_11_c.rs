@@ -1,4 +1,3 @@
-#[derive(Debug, Clone, Copy)]
 struct Dice {
     one: i32,
     two: i32,
