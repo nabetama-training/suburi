@@ -6,4 +6,14 @@ version = "0.1.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+assert_cmd = "2.0.10"
 pretty_assertions = "1.3.0"
+proconio = "0.4.3"
+
+[[bin]]
+name = "practice_a"
+path = "src/bin/abs/practice_a.rs"
+
+[[bin]]
+name = "abc086_a"
+path = "src/bin/abs/abc086_a.rs"
