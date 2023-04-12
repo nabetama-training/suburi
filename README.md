@@ -11,10 +11,20 @@ engaging in an activity.
 
 # Where I train
 
-- https://leetcode.com/
 - https://judge.u-aizu.ac.jp/onlinejudge/index.jsp
 - https://atcoder.jp/contests/abs
+- https://leetcode.com/
 - https://qiita.com/drken/items/fd4e5e3630d0f5859067
+
+# TODO
+
+- [ ] [アルゴリズムとは何か！？ ～ 文系理系問わず楽しめる精選 6 問 ～](https://qiita.com/drken/items/f909b79ee03e679c7142)
+- [ ] [計算量オーダーの求め方を総整理！ 〜 どこから log が出て来るか 〜](https://qiita.com/drken/items/872ebc3a2b5caaa4a0d0)
+- [ ] [AtCoder Beginner Selection](https://atcoder.jp/contests/abs)
+
+# Done
+
+- [x] [AIZU ONLINE JUDGE - Introduction To Programming I](http://judge.u-aizu.ac.jp/onlinejudge/finder.jsp?course=ITP1)
 
 ## Note
 
