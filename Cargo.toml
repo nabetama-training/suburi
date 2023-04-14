@@ -21,3 +21,7 @@ path = "src/bin/abs/abc086_a.rs"
 [[bin]]
 name = "abc081_a"
 path = "src/bin/abs/abc081_a.rs"
+
+[[bin]]
+name = "abc081_b"
+path = "src/bin/abs/abc081_b.rs"
