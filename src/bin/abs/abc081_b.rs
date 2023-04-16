@@ -20,7 +20,7 @@ fn main() {
             break;
         }
     }
-    println!("{}", count);
+    println!("{count}");
 }
 
 mod test {
