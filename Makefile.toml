@@ -1,0 +1,13 @@
+[tasks.pre_setup_abs]
+description = "Pre setup abs for AtCoder"
+script = {file = "setup_abs.sh"}
+
+[tasks.setup_abs]
+dependencies = ["pre_setup_abs"]
+description = "Setup abs for AtCoder"
+run_task = "post_setup_abs"
+
+[tasks.post_setup_abs]
+args = ["build"]
+command = "cargo"
+description = "Post setup abs for AtCoder"
