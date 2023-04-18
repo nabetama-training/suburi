@@ -2,10 +2,10 @@ use proconio::input;
 
 fn main() {
     input! {
-        a: i32,
-        b: i32,
-        c: i32,
-        x: i32,
+        a: i32, // 500円
+        b: i32, // 100円
+        c: i32, // 50円
+        x: i32, // 合計金額
     }
 
     let mut count = 0;
