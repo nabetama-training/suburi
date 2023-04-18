@@ -13,14 +13,23 @@ fn main() {
 mod test {
     #[test]
     fn test_main() {
-        let input = "dummy";
-        let output = "dummy";
+        struct TestCase {
+            input: &'static str,
+            output: &'static str,
+        }
 
-        assert_cmd::Command::cargo_bin("<BIN_NAME>")
-            .unwrap()
-            .write_stdin(input)
-            .assert()
-            .success()
-            .stdout(output);
+        let test_cases = [TestCase {
+            input: r#""#,
+            output: r#""#,
+        }];
+
+        for tc in test_cases.iter() {
+            assert_cmd::Command::cargo_bin("<BIN_NAME>")
+                .unwrap()
+                .write_stdin(tc.input)
+                .assert()
+                .success()
+                .stdout(tc.output);
+        }
     }
 }
