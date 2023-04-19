@@ -11,3 +11,13 @@ run_task = "post_setup_abs"
 args = ["build"]
 command = "cargo"
 description = "Post setup abs for AtCoder"
+
+[tasks.test_abs]
+dependencies = ["build"]
+description = "Run abs for AtCoder"
+run_task = "post_run_abs"
+
+[tasks.post_run_abs]
+args = ["test"]
+command = "cargo"
+description = "Post run abs for AtCoder"
